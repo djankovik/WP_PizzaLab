@@ -1,0 +1,14 @@
+<div class="pizzas" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <h2>Choose pizza:</h2>
+    <form  th:action="@{/controller/pizzaList}" method="POST">
+        <fieldset>
+            <ul style="list-style-type:none">
+                <li th:each="pizza : ${pizzas}">
+                    <input th:id="${pizza.name}" th:name="pizzaSelected" th:value="${pizza.name}" th:type="radio"/>
+                    <label th:for="${pizza.name}" th:text="${pizza.name+' '+pizza.description}"></label>
+                </li>
+            </ul>
+        </fieldset>
+        <input type="submit" value="Submit"/>
+    </form>
+</div>

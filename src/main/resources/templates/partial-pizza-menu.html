@@ -1,0 +1,24 @@
+<!--<div class="pizzas" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">-->
+<!--    <h2>Pizza menu:</h2>-->
+<!--    <ul>-->
+<!--        <li th:each="pizza : ${pizzas}">-->
+<!--            <p th:text="${pizza.name+' '+pizza.description}"></p>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--</div>-->
+
+<div class="pizzas" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <div class="container container-fluid">
+        <div class="row w-100">
+            <div class="card col-3" th:each="pizza : ${pizzas}">
+                <div class="card-img-top m-auto align-content-center"><img class="img-fluid align-self-center" width="180px" height="180px" src="https://i.pinimg.com/originals/e9/c6/d4/e9c6d42c61aa0b4cd2b771f735e2d5d3.png" alt="...">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${pizza.name}"></h5>
+                    <p class="card-text" th:text="${pizza.description}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

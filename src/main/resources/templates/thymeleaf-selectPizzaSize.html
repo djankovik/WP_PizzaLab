@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Pizza Order page - Pizza Size</title>
+    <style type = "text/css">
+        body {
+            width: 800px;
+            margin: auto;
+        }
+        table {
+            width:100%;
+        }
+        table, td, th {
+            border: 1px solid black;
+            padding:3px 2px;
+        }
+        section {
+            float: left;
+            margin: 0 1.5%;
+            width: 63%;
+        }
+        aside {
+            float: right;
+            margin: 0 1.5%;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Pizza Order page - Select Pizza Size </h1>
+</header>
+<div class="container">
+    <div class="pizzas">
+        <form  th:action="@{/PizzaOrder.do}" method="POST">
+            <h2>Choose pizza size:</h2>
+            <fieldset>
+            <ul style="list-style-type:none">
+                <li th:each="size : ${pizzaSizes}">
+                    <input th:id="${size.toString()}" th:name="sizeSelected" th:value="${size.toString()}" th:type="radio"/>
+                    <label th:for="${size.toString()}" th:text="${size.toString()}"></label>
+                </li>
+            </ul>
+            </fieldset>
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+</div>
+<aside>
+    <table>
+        <tr>
+            <th colspan="2">
+                Your Order Status
+            </th>
+        </tr>
+        <tr>
+            <td><b>Pizza Type</b></td>
+            <td><span th:text="${selectedPizzaName}"></span></td>
+
+        </tr>
+    </table>
+</aside>
+
+</body>
+</html>
